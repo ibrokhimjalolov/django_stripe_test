@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web: &web
+    container_name: django_stripe_web
+    build: .
+    ports:
+      - ${DJANGO_PORT}:${DJANGO_PORT}
+    volumes:
+      - .:/app
+    env_file:
+      - ./.env
+    command: python manage.py runserver 0.0.0.0:${DJANGO_PORT}  # for only dev environment
+    restart: always

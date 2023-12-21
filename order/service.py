@@ -23,5 +23,4 @@ def get_item_stripe_session(item) -> str:
             }
         ]
     )
-    print(res)
     return res["id"]

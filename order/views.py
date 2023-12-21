@@ -6,12 +6,10 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 
 from order import models
-from order import serializers
 from order import service as order_service
 
 
 class ItemBuyApiView(APIView):
-    serializer_class = serializers.BuyItemResponseSerializer
     
     def get(self, request, pk):
         item = get_object_or_404(models.Item, pk=pk)

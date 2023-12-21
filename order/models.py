@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 class Item(models.Model):
     name = models.CharField(_("Name"), max_length=255)
     description = models.TextField(_("Description"))
-    price = models.PositiveIntegerField(_("Price"))  # price will store in minimum unit
+    price = models.PositiveIntegerField(_("Price"), help_text="cent")  # price will store in minimum unit
     
     def __str__(self) -> str:
         return self.name

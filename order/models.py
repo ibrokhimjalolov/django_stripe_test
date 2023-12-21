@@ -59,5 +59,6 @@ class OrderItem(models.Model):
         unique_together = ["order", "item"]
 
     def save(self, *args, **kwargs):
-        self.price = self.item.price
+        if self.price is None:
+            self.price = self.item.price
         super().save(*args, **kwargs)
